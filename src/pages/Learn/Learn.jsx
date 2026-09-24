@@ -17,7 +17,7 @@ import {
   recordLessonCompleted,
 } from "../../data/rewards";
 
-function Learn() {
+function Learn({ initialCategoryId = null }) {
   const [selectedCategory, setSelectedCategory] =
     useState(null);
 
@@ -131,6 +131,41 @@ function Learn() {
     };
   }, []);
 
+
+  /*
+ * =========================================
+ * OPEN CATEGORY FROM OTHER SECTIONS
+ * =========================================
+ *
+ * Home can send:
+ *
+ * onNavigate("learn", {
+ *   categoryId: "alphabet"
+ * });
+ *
+ * This effect finds that category from the
+ * existing learning data and opens it.
+ */
+
+useEffect(() => {
+  if (!initialCategoryId) {
+    return;
+  }
+
+  const category = learningCategories.find(
+    (item) => item.id === initialCategoryId
+  );
+
+  if (!category) {
+    return;
+  }
+
+  stopSpeaking();
+
+  setSelectedCategory(category);
+  setSelectedLesson(null);
+  setIsSpeaking(false);
+}, [initialCategoryId]);
   /*
    * =========================================
    * CATEGORY
