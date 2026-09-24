@@ -1,0 +1,461 @@
+.counting-page {
+  width: 100%;
+  max-width: 620px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 auto;
+
+  padding: 20px 16px 35px;
+}
+
+/* HEADER */
+
+.counting-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+
+  color: #777;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.counting-back-button {
+  border: 0;
+  background: transparent;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.counting-header {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 25px;
+}
+
+.counting-title-icon {
+  width: 64px;
+  height: 64px;
+
+  flex: 0 0 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #f1f7ff;
+
+  font-size: 34px;
+}
+
+.counting-eyebrow {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.counting-header h1 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 27px;
+  line-height: 1.1;
+
+  font-weight: 900;
+}
+
+.counting-header p {
+  margin: 5px 0 0;
+
+  color: #777;
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* PROGRESS */
+
+.counting-progress-card {
+  padding: 17px;
+
+  margin-bottom: 28px;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.counting-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.counting-progress-top strong {
+  color: #222;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.counting-progress-top span {
+  color: #777;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.counting-progress-track {
+  width: 100%;
+  height: 9px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #eeeeee;
+}
+
+.counting-progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #222;
+
+  transition: width 0.3s ease;
+}
+
+/* LEVELS */
+
+.counting-level-section {
+  width: 100%;
+}
+
+.counting-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+}
+
+.counting-section-heading h2 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.counting-section-heading span {
+  color: #888;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.counting-level-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+/* GAME */
+
+.counting-question {
+  text-align: center;
+
+  margin-bottom: 24px;
+}
+
+.counting-question-label {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.counting-question h1 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 27px;
+  line-height: 1.2;
+
+  font-weight: 900;
+}
+
+.counting-question p {
+  margin: 7px 0 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+/* OBJECTS */
+
+.counting-objects {
+  min-height: 230px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  padding: 25px;
+
+  margin-bottom: 24px;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.counting-object {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  font-size: 43px;
+
+  animation: countingObjectAppear 0.35s ease both;
+}
+
+.counting-object:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.counting-object:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.counting-object:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
+.counting-object:nth-child(5) {
+  animation-delay: 0.16s;
+}
+
+.counting-object:nth-child(6) {
+  animation-delay: 0.2s;
+}
+
+.counting-object:nth-child(7) {
+  animation-delay: 0.24s;
+}
+
+@keyframes countingObjectAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* OPTIONS */
+
+.counting-options {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.counting-option {
+  min-height: 70px;
+
+  border: 0;
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  color: #222;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+
+  cursor: pointer;
+
+  transition: transform 0.18s ease;
+}
+
+.counting-option:active {
+  transform: scale(0.92);
+}
+
+/* MESSAGE */
+
+.counting-message {
+  margin-top: 18px;
+
+  padding: 14px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.counting-message.success {
+  background: #ecffd7;
+  color: #315500;
+}
+
+.counting-message.try-again {
+  background: #f4f4f4;
+  color: #555;
+}
+
+.counting-next-button {
+  width: 100%;
+
+  min-height: 52px;
+
+  margin-top: 14px;
+
+  border: 0;
+  border-radius: 18px;
+
+  background: #222;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .counting-page {
+    padding: 32px 24px 45px;
+  }
+
+  .counting-title-icon {
+    width: 72px;
+    height: 72px;
+
+    flex-basis: 72px;
+
+    font-size: 38px;
+  }
+
+  .counting-header h1 {
+    font-size: 32px;
+  }
+
+  .counting-question h1 {
+    font-size: 32px;
+  }
+
+  .counting-objects {
+    min-height: 300px;
+  }
+
+  .counting-object {
+    width: 72px;
+    height: 72px;
+
+    font-size: 50px;
+  }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 370px) {
+  .counting-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .counting-title-icon {
+    width: 56px;
+    height: 56px;
+
+    flex-basis: 56px;
+
+    font-size: 30px;
+  }
+
+  .counting-header h1 {
+    font-size: 24px;
+  }
+
+  .counting-objects {
+    min-height: 200px;
+
+    gap: 8px;
+
+    padding: 18px;
+  }
+
+  .counting-object {
+    width: 52px;
+    height: 52px;
+
+    font-size: 36px;
+  }
+
+  .counting-option {
+    min-height: 62px;
+
+    font-size: 24px;
+  }
+}

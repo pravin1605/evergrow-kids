@@ -1,0 +1,125 @@
+.letter-hunt-page {
+  width: 100%;
+  max-width: 620px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+.letter-hunt-back {
+  border: 0;
+  background: transparent;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.letter-hunt-header {
+  text-align: center;
+
+  margin: 35px 0 25px;
+}
+
+.letter-hunt-header span {
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.letter-hunt-header h1 {
+  margin: 6px 0;
+
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.letter-hunt-header p {
+  margin: 0;
+
+  color: #777;
+  font-size: 13px;
+}
+
+.letter-hunt-card {
+  padding: 25px;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+
+  text-align: center;
+}
+
+.letter-hunt-target {
+  width: 150px;
+  height: 150px;
+
+  margin: 10px auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 35px;
+
+  background: #f1f7ff;
+
+  font-size: 82px;
+  font-weight: 900;
+}
+
+.letter-hunt-card h2 {
+  margin: 0 0 18px;
+
+  font-size: 19px;
+}
+
+.letter-hunt-options {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.letter-hunt-options button {
+  min-height: 72px;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: #f7f7f7;
+
+  font-size: 30px;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.letter-hunt-options button:active {
+  transform: scale(0.94);
+}
+
+.letter-hunt-message {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border-radius: 16px;
+
+  background: #ecffd7;
+
+  font-weight: 900;
+}

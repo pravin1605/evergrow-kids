@@ -1,0 +1,132 @@
+.color-match-page {
+  width: 100%;
+  max-width: 620px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+.color-match-back {
+  border: 0;
+  background: transparent;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.color-match-header {
+  text-align: center;
+
+  margin: 35px 0 25px;
+}
+
+.color-match-header span {
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.color-match-header h1 {
+  margin: 6px 0;
+
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.color-match-header p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.color-match-card {
+  padding: 25px;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+
+  text-align: center;
+}
+
+.color-target {
+  width: 150px;
+  height: 150px;
+
+  margin: 10px auto 25px;
+
+  border-radius: 38px;
+
+  box-shadow:
+    inset 0 0 0 8px rgba(255, 255, 255, 0.35),
+    0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.color-match-card h2 {
+  margin: 0 0 18px;
+
+  font-size: 19px;
+}
+
+.color-options {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.color-options button {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 15px;
+
+  border: 0;
+  border-radius: 18px;
+
+  background: #f7f7f7;
+
+  color: #222;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.color-option-circle {
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+}
+
+.color-match-message {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border-radius: 16px;
+
+  background: #ecffd7;
+
+  font-weight: 900;
+}

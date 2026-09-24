@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  width: 100%;
+  min-width: 320px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #f7f9ff;
+  color: #222;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app-shell {
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app-content {
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  /*
+    Space reserved for the fixed
+    bottom navigation.
+  */
+  padding-bottom: 105px;
+}
+
+/* Temporary screens for Step 4+ */
+
+.placeholder-screen {
+  width: 100%;
+  max-width: 560px;
+
+  min-height: calc(100vh - 105px);
+  min-height: calc(100dvh - 105px);
+
+  margin: 0 auto;
+
+  padding: 40px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  line-height: 1;
+
+  margin-bottom: 20px;
+}
+
+.placeholder-screen h1 {
+  margin: 0 0 8px;
+
+  font-size: 32px;
+}
+
+.placeholder-screen p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 15px;
+}

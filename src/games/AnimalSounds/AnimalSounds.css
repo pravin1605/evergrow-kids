@@ -1,0 +1,142 @@
+.animal-sounds-page {
+  width: 100%;
+  max-width: 620px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+.animal-sounds-back {
+  border: 0;
+  background: transparent;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.animal-sounds-header {
+  text-align: center;
+
+  margin: 35px 0 25px;
+}
+
+.animal-sounds-header span {
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.animal-sounds-header h1 {
+  margin: 6px 0;
+
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.animal-sounds-header p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.animal-sounds-card {
+  padding: 25px;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+
+  text-align: center;
+}
+
+.animal-sound-bubble {
+  width: 130px;
+  height: 130px;
+
+  margin: 10px auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f1f7ff;
+
+  font-size: 58px;
+}
+
+.animal-sounds-card h2 {
+  margin: 0;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.animal-sounds-card > p {
+  margin: 6px 0 20px;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.animal-options {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.animal-options button {
+  min-height: 110px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: #f7f7f7;
+
+  cursor: pointer;
+}
+
+.animal-options button span {
+  font-size: 42px;
+}
+
+.animal-options button strong {
+  font-size: 12px;
+}
+
+.animal-sounds-message {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border-radius: 16px;
+
+  background: #ecffd7;
+
+  font-weight: 900;
+}

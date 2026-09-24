@@ -1,0 +1,138 @@
+.level-card {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.06);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.level-card:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.level-card:disabled {
+  cursor: not-allowed;
+}
+
+.level-number {
+  width: 52px;
+  height: 52px;
+
+  flex: 0 0 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background: #f1f7ff;
+
+  color: #222;
+
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.level-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.level-info strong {
+  color: #222;
+
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.level-info span {
+  color: #888;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.level-arrow {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #f5f5f5;
+
+  color: #555;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.level-card.completed {
+  background: #f8fff2;
+}
+
+.level-card.completed .level-number {
+  background: #eaffcf;
+}
+
+.level-card.completed .level-arrow {
+  background: #222;
+  color: #ffffff;
+}
+
+.level-card.locked {
+  opacity: 0.55;
+}
+
+.level-card.locked .level-number {
+  background: #eeeeee;
+}
+
+@media (min-width: 768px) {
+  .level-card {
+    padding: 16px;
+  }
+
+  .level-number {
+    width: 58px;
+    height: 58px;
+
+    flex-basis: 58px;
+
+    font-size: 23px;
+  }
+
+  .level-info strong {
+    font-size: 17px;
+  }
+}
