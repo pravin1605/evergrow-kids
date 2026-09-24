@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 import "./Coloring.css";
+import { getGameLevels } from "../../data/gameLevels";
+import { recordLevelCompleted } from "../../data/rewards";
+import RewardPopup from "../../components/RewardPopup/RewardPopup";
 
 const colors = [
   "#ef4444",
@@ -11,12 +14,14 @@ const colors = [
   "#f97316",
 ];
 
-function Coloring({ onBack }) {
+function Coloring({ onBack, levelId = 1 }) {
+  const level = getGameLevels("coloring")[Number(levelId) - 1] || getGameLevels("coloring")[0];
   const [selectedColor, setSelectedColor] =
     useState(colors[0]);
 
   const [selectedPart, setSelectedPart] =
     useState(null);
+  const [rewardVisible, setRewardVisible] = useState(false);
 
   return (
     <main className="coloring-page">
@@ -25,7 +30,7 @@ function Coloring({ onBack }) {
         className="coloring-back"
         onClick={onBack}
       >
-        ← Games
+        ← Levels
       </button>
 
       <header className="coloring-header">
@@ -117,10 +122,19 @@ function Coloring({ onBack }) {
           ))}
         </div>
 
+        <button type="button" className="coloring-complete-button" onClick={() => {
+          const result = recordLevelCompleted("coloring", level.id, level.stars);
+          if (result.awarded) setRewardVisible(true);
+        }}>
+          🎉 Finish Level
+        </button>
+
         <p className="coloring-help">
           Choose a color, then tap a picture part.
         </p>
       </section>
+
+      <RewardPopup isVisible={rewardVisible} stars={level.stars} message="Level Complete!" onClose={() => setRewardVisible(false)} />
     </main>
   );
 }

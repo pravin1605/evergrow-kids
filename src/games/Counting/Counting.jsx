@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./Counting.css";
 
-import countingLevels from "../../data/levels";
+import { getGameLevels } from "../../data/gameLevels";
 import LevelCard from "../../components/LevelCard/LevelCard";
 
 import {
@@ -10,10 +10,20 @@ import {
   recordLevelCompleted,
 } from "../../data/rewards";
 
-function Counting() {
+function Counting({ levelId = null, onBack }) {
   const [selectedLevel, setSelectedLevel] = useState(null);
+
+  useEffect(() => {
+    if (!levelId) return;
+    const level = countingLevels.find((item) => item.id === Number(levelId));
+    if (level) {
+      setSelectedLevel(level);
+      setMessage("");
+    }
+  }, [levelId]);
   const [progress, setProgress] = useState(getProgress());
   const [message, setMessage] = useState("");
+  const countingLevels = getGameLevels("count-objects");
 
   const completedLevels =
     progress.gameProgress?.counting?.completedLevels || [];
@@ -57,6 +67,7 @@ function Counting() {
     setSelectedLevel(null);
     setMessage("");
     setProgress(getProgress());
+    if (onBack) onBack();
   };
 
   /*

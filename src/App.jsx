@@ -44,6 +44,7 @@ function getNavigationFromUrl() {
     return {
       section: "home",
       gameId: null,
+      levelId: null,
       categoryId: null,
     };
   }
@@ -62,6 +63,7 @@ function getNavigationFromUrl() {
     return {
       section: "games",
       gameId: parts[1] || null,
+      levelId: parts[2] ? Number(parts[2]) : null,
       categoryId: null,
     };
   }
@@ -76,6 +78,7 @@ function getNavigationFromUrl() {
     return {
       section: "learn",
       gameId: null,
+      levelId: null,
       categoryId: parts[1] || null,
     };
   }
@@ -90,6 +93,7 @@ function getNavigationFromUrl() {
     return {
       section: "rewards",
       gameId: null,
+      levelId: null,
       categoryId: null,
     };
   }
@@ -104,6 +108,7 @@ function getNavigationFromUrl() {
     return {
       section: "profile",
       gameId: null,
+      levelId: null,
       categoryId: null,
     };
   }
@@ -120,6 +125,7 @@ function getNavigationFromUrl() {
   return {
     section: "home",
     gameId: null,
+    levelId: null,
     categoryId: null,
   };
 }
@@ -145,6 +151,9 @@ function App() {
 
   const [selectedGameId, setSelectedGameId] =
     useState(initialNavigation.gameId);
+
+  const [selectedLevelId, setSelectedLevelId] =
+    useState(initialNavigation.levelId);
 
   const [
     selectedCategoryId,
@@ -175,6 +184,8 @@ function App() {
     if (section === "games") {
       gameId = options.gameId || null;
 
+      const levelId = options.levelId || null;
+      setSelectedLevelId(levelId);
       setSelectedGameId(gameId);
       setSelectedCategoryId(null);
     }
@@ -186,6 +197,7 @@ function App() {
      */
 
     else if (section === "learn") {
+      setSelectedLevelId(null);
       categoryId =
         options.categoryId || null;
 
@@ -200,6 +212,7 @@ function App() {
      */
 
     else {
+      setSelectedLevelId(null);
       setSelectedGameId(null);
       setSelectedCategoryId(null);
     }
@@ -219,7 +232,8 @@ function App() {
     let newHash = section;
 
     if (section === "games" && gameId) {
-      newHash = `games/${gameId}`;
+      const levelId = options.levelId || null;
+      newHash = levelId ? `games/${gameId}/${levelId}` : `games/${gameId}`;
     }
 
     if (section === "learn" && categoryId) {
@@ -270,6 +284,10 @@ function App() {
         navigation.gameId
       );
 
+      setSelectedLevelId(
+        navigation.levelId
+      );
+
       setSelectedCategoryId(
         navigation.categoryId
       );
@@ -315,6 +333,7 @@ function App() {
         return (
           <Games
             initialGameId={selectedGameId}
+            initialLevelId={selectedLevelId}
             onNavigate={handleNavigate}
           />
         );

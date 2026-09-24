@@ -3,39 +3,22 @@ import { useState } from "react";
 import "./Memory.css";
 
 import RewardPopup from "../../components/RewardPopup/RewardPopup";
+import { getGameLevels } from "../../data/gameLevels";
 
 import {
-  recordGameCompleted,
+  recordLevelCompleted,
 } from "../../data/rewards";
 
-const cards = [
-  {
-    id: 1,
-    value: "🍎",
-  },
-  {
-    id: 2,
-    value: "🍎",
-  },
-  {
-    id: 3,
-    value: "⭐",
-  },
-  {
-    id: 4,
-    value: "⭐",
-  },
-  {
-    id: 5,
-    value: "🐶",
-  },
-  {
-    id: 6,
-    value: "🐶",
-  },
-];
 
-function Memory({ onBack }) {
+
+function Memory({ onBack, levelId = 1 }) {
+  const level = getGameLevels("memory")[Number(levelId) - 1] || getGameLevels("memory")[0];
+  const values = ["🍎", "⭐", "🐶", "🍌", "🌈", "🚗"].slice(0, level.pairs);
+  const cards = values.flatMap((value, index) => [
+    { id: index * 2 + 1, value },
+    { id: index * 2 + 2, value },
+  ]);
+
   const [flipped, setFlipped] =
     useState([]);
 
@@ -86,9 +69,10 @@ function Memory({ onBack }) {
           cards.length
         ) {
           const result =
-            recordGameCompleted(
+            recordLevelCompleted(
               "memory",
-              10
+              levelId,
+              levelId === 10 ? 10 : 5
             );
 
           if (result.awarded) {
@@ -117,7 +101,7 @@ function Memory({ onBack }) {
         className="memory-back"
         onClick={onBack}
       >
-        ← Games
+        ← Levels
       </button>
 
       <header className="memory-header">
@@ -167,7 +151,7 @@ function Memory({ onBack }) {
 
       <RewardPopup
         isVisible={rewardVisible}
-        stars={10}
+        stars={level.stars}
         message="Memory Master!"
         onClose={() =>
           setRewardVisible(false)

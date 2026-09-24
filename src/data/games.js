@@ -78,6 +78,26 @@ const games = [
     difficulty: "Easy",
     stars: 15,
   },
+
+  {
+    id: "word-match",
+    title: "Word Match",
+    icon: "🧩",
+    category: "Words",
+    description: "Match pictures with simple words!",
+    difficulty: "Easy",
+    stars: 10,
+  },
+
+  {
+    id: "odd-one-out",
+    title: "Odd One Out",
+    icon: "👀",
+    category: "Thinking",
+    description: "Find the one that is different!",
+    difficulty: "Easy",
+    stars: 10,
+  },
 ];
 
 export default games;
