@@ -3,18 +3,12 @@ import { useEffect, useState } from "react";
 import "./InstallPrompt.css";
 
 function InstallPrompt() {
-  const [installEvent, setInstallEvent] =
-    useState(null);
-
-  const [isInstalled, setIsInstalled] =
-    useState(false);
+  const [installEvent, setInstallEvent] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (
-      event
-    ) => {
+    const handleBeforeInstallPrompt = (event) => {
       event.preventDefault();
-
       setInstallEvent(event);
     };
 
@@ -23,51 +17,29 @@ function InstallPrompt() {
       setInstallEvent(null);
     };
 
-    window.addEventListener(
-      "beforeinstallprompt",
-      handleBeforeInstallPrompt
-    );
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
 
-    window.addEventListener(
-      "appinstalled",
-      handleAppInstalled
-    );
-
-    const standalone =
-      window.matchMedia(
-        "(display-mode: standalone)"
-      ).matches;
+    const standalone = window.matchMedia("(display-mode: standalone)").matches;
 
     if (standalone) {
       setIsInstalled(true);
     }
 
     return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt
-      );
-
-      window.removeEventListener(
-        "appinstalled",
-        handleAppInstalled
-      );
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
 
   const handleInstall = async () => {
-    if (!installEvent) {
-      return;
-    }
+    if (!installEvent) return;
 
     await installEvent.prompt();
 
-    const result =
-      await installEvent.userChoice;
+    const result = await installEvent.userChoice;
 
-    if (
-      result.outcome === "accepted"
-    ) {
+    if (result.outcome === "accepted") {
       setIsInstalled(true);
     }
 
@@ -83,24 +55,11 @@ function InstallPrompt() {
       type="button"
       className="install-prompt"
       onClick={handleInstall}
+      aria-label="Install EverGrow Kids app"
+      title="Install EverGrow Kids"
     >
-      <span className="install-prompt-icon">
-        📱
-      </span>
-
-      <span className="install-prompt-content">
-        <strong>
-          Install EverGrow Kids
-        </strong>
-
-        <small>
-          Learn & play from your home screen
-        </small>
-      </span>
-
-      <span className="install-prompt-arrow">
-        →
-      </span>
+      <span className="install-prompt-ring" aria-hidden="true" />
+      <span className="install-prompt-icon">📱</span>
     </button>
   );
 }

@@ -1,1 +1,210 @@
-.game-level-select-page{width:100%;max-width:560px;margin:0 auto;padding:20px 16px 30px}.game-level-back{border:0;background:#fff;border-radius:14px;padding:10px 14px;font-weight:900;color:#444;box-shadow:0 5px 16px rgba(0,0,0,.06);cursor:pointer}.game-level-hero{margin-top:18px;padding:22px;border-radius:28px;background:linear-gradient(135deg,#fff,#f2f7ff);display:flex;gap:16px;align-items:center;box-shadow:0 10px 28px rgba(0,0,0,.06)}.game-level-icon{width:72px;height:72px;flex:0 0 72px;border-radius:22px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 6px 18px rgba(0,0,0,.06)}.game-level-hero span{font-size:11px;font-weight:900;letter-spacing:1px;color:#8a8a8a}.game-level-hero h1{margin:4px 0 5px;font-size:28px}.game-level-hero p{margin:0;color:#777;font-size:13px;line-height:1.5}.game-level-progress{margin-top:16px;padding:18px;border-radius:22px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.06)}.game-level-progress-top{display:flex;justify-content:space-between;align-items:center;font-size:13px}.game-level-track{height:11px;margin-top:12px;background:#edf0f5;border-radius:99px;overflow:hidden}.game-level-track div{height:100%;background:#b7ed45;border-radius:99px;transition:width .35s ease}.game-level-section{margin-top:22px}.game-level-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.game-level-heading h2{margin:0;font-size:20px}.game-level-heading span{font-size:12px;font-weight:800;color:#777}.game-level-list{display:grid;gap:11px}@media(min-width:768px){.game-level-select-page{padding-top:30px}.game-level-hero h1{font-size:32px}}
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap");
+
+.game-level-select-page {
+  --ink: #2b2140;
+  --pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  overflow: hidden;
+  font-family: "Baloo 2", "Nunito", "Comic Sans MS", system-ui, sans-serif;
+  color: var(--ink);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.7) 3px, transparent 3px),
+    linear-gradient(180deg, #e6f4ff 0%, #fff6db 50%, #ffe9f1 100%);
+  background-size: 28px 28px, auto;
+}
+
+.game-level-select-page > *:not(.gls-floaters) { position: relative; z-index: 1; }
+
+.gls-floaters { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.gls-floaters span {
+  position: absolute;
+  left: calc(var(--i) * 18% - 2%);
+  bottom: -40px;
+  font-size: calc(15px + var(--i) * 2px);
+  opacity: 0.4;
+  animation: gls-drift calc(11s + var(--i) * 2s) linear infinite;
+  animation-delay: calc(var(--i) * -3s);
+}
+@keyframes gls-drift { to { transform: translateY(-115vh) rotate(40deg); } }
+
+.game-level-back {
+  border: 3px solid var(--ink);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--ink);
+  box-shadow: 0 4px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.game-level-back:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+
+/* ---------- HERO ---------- */
+
+.game-level-hero {
+  margin-top: 18px;
+  padding: 22px;
+  border: 4px solid #fff;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #b794ff, #6ea8ff);
+  color: #fff;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 8px 0 #6f5bd0;
+}
+
+.game-level-icon {
+  width: 78px;
+  height: 78px;
+  flex: 0 0 78px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  animation: gls-icon-float 2.8s ease-in-out infinite;
+}
+@keyframes gls-icon-float { 50% { transform: translateY(-6px) rotate(-6deg); } }
+
+.game-level-category {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.game-level-hero h1 { margin: 6px 0 5px; font-size: 27px; font-weight: 800; }
+.game-level-hero p { margin: 0; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, 0.92); }
+
+/* ---------- PROGRESS ---------- */
+
+.game-level-progress {
+  margin-top: 16px;
+  padding: 18px;
+  border: 4px solid #fff;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+.game-level-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.game-level-progress-top strong { font-weight: 800; }
+
+.game-level-progress-top span {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ffe066;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.game-level-track {
+  height: 14px;
+  margin-top: 12px;
+  background: #f2f2f2;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.game-level-track div {
+  height: 100%;
+  border-radius: 999px;
+  background: repeating-linear-gradient(45deg, #7ae582 0 10px, #9de8a5 10px 20px);
+  background-size: 28px 28px;
+  transition: width 0.5s var(--pop);
+  animation: gls-stripes 1s linear infinite;
+}
+@keyframes gls-stripes { to { background-position: 28px 0; } }
+
+/* ---------- LEVEL SECTION ---------- */
+
+.game-level-section { margin-top: 24px; }
+
+.game-level-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.game-level-heading h2 {
+  display: inline-block;
+  margin: 0;
+  padding: 3px 16px 5px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 4px 0 var(--ink);
+  transform: rotate(-1.2deg);
+}
+
+.game-level-heading span {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ff6b6b;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  animation: gls-pulse 1.8s var(--pop) infinite;
+}
+@keyframes gls-pulse { 50% { transform: scale(1.08); } }
+
+.game-level-list { display: grid; gap: 12px; }
+
+.level-slot {
+  animation: gls-card-in 0.5s var(--pop) both;
+  animation-delay: calc(var(--i) * 80ms + 300ms);
+}
+
+@keyframes gls-card-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- ENTRANCE ---------- */
+
+.gls-animate { opacity: 0; animation: gls-enter 0.6s var(--pop) forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+@keyframes gls-enter {
+  from { opacity: 0; transform: translateY(22px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (min-width: 768px) {
+  .game-level-select-page { padding-top: 30px; }
+  .game-level-hero h1 { font-size: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-level-select-page *, .game-level-select-page *::before, .game-level-select-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .gls-animate, .level-slot { opacity: 1; }
+}

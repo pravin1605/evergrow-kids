@@ -10,9 +10,13 @@ function LevelCard({ level, locked, completed, onSelect }) {
       disabled={locked}
       onClick={() => onSelect(level)}
     >
-      <div className="level-number">
-        {locked ? "🔒" : level.id}
-      </div>
+      {completed && (
+        <span className="level-confetti" aria-hidden="true">
+          <span>✨</span><span>⭐</span><span>🎉</span>
+        </span>
+      )}
+
+      <div className="level-number">{locked ? "🔒" : level.id}</div>
 
       <div className="level-info">
         <strong>{level.title}</strong>

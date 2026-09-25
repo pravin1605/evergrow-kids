@@ -17,7 +17,13 @@ export const gameLevelSets = {
     { task: "Find P", target: "P", options: ["Q", "P", "R", "B"] },
     { task: "Find R", target: "R", options: ["S", "R", "P", "T"] },
     { task: "Find S", target: "S", options: ["C", "S", "Z", "F"] },
-    { task: "Find Z", target: "Z", options: ["X", "Y", "Z", "W"], stars: 10 },
+    // harder: bigger option sets and look-alike letters
+    { task: "Find b (lowercase)", target: "b", options: ["b", "d", "p", "q", "b"] },
+    { task: "Find d (lowercase)", target: "d", options: ["b", "d", "p", "q", "d"] },
+    { task: "Find q (lowercase)", target: "q", options: ["p", "q", "g", "b", "q"] },
+    { task: "Find N among lookalikes", target: "N", options: ["M", "N", "W", "H", "N"] },
+    { task: "Find G among lookalikes", target: "G", options: ["C", "G", "O", "Q", "G"] },
+    { task: "Find Z — final challenge!", target: "Z", options: ["X", "Y", "Z", "W", "N", "M"], stars: 15 },
   ]),
 
   "count-objects": makeLevels([
@@ -30,7 +36,13 @@ export const gameLevelSets = {
     { question: "How many hearts?", emoji: "❤️", count: 9, options: [8, 9, 10] },
     { question: "How many moons?", emoji: "🌙", count: 10, options: [9, 10, 11] },
     { question: "How many suns?", emoji: "☀️", count: 6, options: [5, 6, 7] },
-    { question: "How many mixed stars?", emoji: "⭐", count: 10, options: [8, 9, 10], stars: 10 },
+    // harder: bigger counts, closer answer options
+    { question: "How many butterflies?", emoji: "🦋", count: 11, options: [10, 11, 12, 13] },
+    { question: "How many fish?", emoji: "🐟", count: 12, options: [11, 12, 13, 14] },
+    { question: "How many gift boxes?", emoji: "🎁", count: 13, options: [12, 13, 14, 15] },
+    { question: "How many candies?", emoji: "🍬", count: 14, options: [12, 13, 14, 15] },
+    { question: "How many kites?", emoji: "🪁", count: 15, options: [13, 14, 15, 16] },
+    { question: "How many mixed stars? (final challenge)", emoji: "⭐", count: 16, options: [14, 15, 16, 17], stars: 15 },
   ]),
 
   "number-match": makeLevels([
@@ -43,7 +55,13 @@ export const gameLevelSets = {
     { number: 8, emoji: "❤️", options: [7, 8, 10] },
     { number: 9, emoji: "🐟", options: [8, 9, 10] },
     { number: 10, emoji: "🌟", options: [8, 9, 10] },
-    { number: 10, emoji: "🎁", options: [9, 10, 11], stars: 10 },
+    // harder: closer distractor numbers, bigger numbers
+    { number: 11, emoji: "🎁", options: [10, 11, 12, 13] },
+    { number: 12, emoji: "🦋", options: [11, 12, 13, 14] },
+    { number: 13, emoji: "🍬", options: [12, 13, 14, 15] },
+    { number: 14, emoji: "🪁", options: [13, 14, 15, 16] },
+    { number: 15, emoji: "🎈", options: [14, 15, 16, 17] },
+    { number: 20, emoji: "🌟", options: [18, 19, 20, 21], stars: 15 },
   ]),
 
   "color-match": makeLevels([
@@ -56,7 +74,13 @@ export const gameLevelSets = {
     { color: "Pink", emoji: "🌸", options: ["Pink", "Green", "Orange"] },
     { color: "Brown", emoji: "🐻", options: ["Brown", "Black", "Blue"] },
     { color: "Black", emoji: "🖤", options: ["White", "Black", "Red"] },
-    { color: "White", emoji: "☁️", options: ["White", "Purple", "Green"], stars: 10 },
+    { color: "White", emoji: "☁️", options: ["White", "Purple", "Green"] },
+    // harder: four+ close options, trickier items
+    { color: "Gray", emoji: "🐘", options: ["Gray", "Brown", "Black", "White"] },
+    { color: "Teal", emoji: "🦚", options: ["Blue", "Green", "Teal", "Purple"] },
+    { color: "Maroon", emoji: "🍷", options: ["Red", "Maroon", "Brown", "Purple"] },
+    { color: "Gold", emoji: "🏅", options: ["Yellow", "Gold", "Orange", "Brown"] },
+    { color: "Turquoise", emoji: "💎", options: ["Blue", "Green", "Turquoise", "Teal"], stars: 15 },
   ]),
 
   "shape-hunt": makeLevels([
@@ -69,7 +93,13 @@ export const gameLevelSets = {
     { shape: "Oval", icon: "⬭", options: ["⬭", "▲", "★"] },
     { shape: "Hexagon", icon: "⬡", options: ["⬡", "●", "◆"] },
     { shape: "Arrow", icon: "➜", options: ["➜", "★", "■"] },
-    { shape: "Crescent", icon: "☾", options: ["☾", "◆", "▲"], stars: 10 },
+    { shape: "Crescent", icon: "☾", options: ["☾", "◆", "▲"] },
+    // harder: more options, similar-looking shapes together
+    { shape: "Pentagon", icon: "⬠", options: ["⬠", "⬡", "◆", "■"] },
+    { shape: "Rectangle", icon: "▭", options: ["■", "▭", "◆", "●"] },
+    { shape: "Trapezoid", icon: "⏢", options: ["⏢", "▲", "▭", "⬠"] },
+    { shape: "Parallelogram", icon: "▱", options: ["▭", "▱", "■", "◆"] },
+    { shape: "Octagon (final)", icon: "⯃", options: ["⬡", "⬠", "⯃", "●"], stars: 15 },
   ]),
 
   "animal-sounds": makeLevels([
@@ -82,7 +112,13 @@ export const gameLevelSets = {
     { animal: "Sheep", sound: "Baa!", icon: "🐑", options: ["🐐", "🐑", "🐴"] },
     { animal: "Horse", sound: "Neigh!", icon: "🐴", options: ["🐴", "🐶", "🐱"] },
     { animal: "Frog", sound: "Ribbit!", icon: "🐸", options: ["🐸", "🦆", "🐍"] },
-    { animal: "Monkey", sound: "Oo-oo!", icon: "🐵", options: ["🐵", "🦁", "🐘"], stars: 10 },
+    { animal: "Monkey", sound: "Oo-oo!", icon: "🐵", options: ["🐵", "🦁", "🐘"] },
+    // harder: more lookalike animal options
+    { animal: "Owl", sound: "Hoot!", icon: "🦉", options: ["🦅", "🦉", "🐦", "🦆"] },
+    { animal: "Rooster", sound: "Cock-a-doodle-doo!", icon: "🐓", options: ["🐔", "🐓", "🦃", "🐦"] },
+    { animal: "Bee", sound: "Buzz!", icon: "🐝", options: ["🦋", "🐝", "🐞", "🪰"] },
+    { animal: "Snake", sound: "Hiss!", icon: "🐍", options: ["🐍", "🐛", "🦎", "🐊"] },
+    { animal: "Wolf (final)", sound: "Howl!", icon: "🐺", options: ["🐶", "🦊", "🐺", "🐕"], stars: 15 },
   ]),
 
   memory: makeLevels([
@@ -95,7 +131,13 @@ export const gameLevelSets = {
     { pairs: 5, difficulty: "Super memory" },
     { pairs: 5, difficulty: "Memory master" },
     { pairs: 6, difficulty: "Big challenge" },
-    { pairs: 6, difficulty: "Memory champion", stars: 10 },
+    { pairs: 6, difficulty: "Memory champion" },
+    // harder: bigger boards
+    { pairs: 7, difficulty: "Sharp mind" },
+    { pairs: 7, difficulty: "Focus master" },
+    { pairs: 8, difficulty: "Grand memory" },
+    { pairs: 8, difficulty: "Genius mode" },
+    { pairs: 9, difficulty: "Memory legend", stars: 15 },
   ]),
 
   coloring: makeLevels([
@@ -108,7 +150,13 @@ export const gameLevelSets = {
     { picture: "Rainbow", icon: "🌈" },
     { picture: "Fish", icon: "🐟" },
     { picture: "Rocket", icon: "🚀" },
-    { picture: "Happy World", icon: "🌍", stars: 10 },
+    { picture: "Happy World", icon: "🌍" },
+    // harder: more detailed pictures with more regions to color
+    { picture: "Castle", icon: "🏰" },
+    { picture: "Peacock", icon: "🦚" },
+    { picture: "Dinosaur", icon: "🦕" },
+    { picture: "Under the Sea", icon: "🐠" },
+    { picture: "Fireworks Night (final)", icon: "🎆", stars: 15 },
   ]),
 
   "word-match": makeLevels([
@@ -121,7 +169,13 @@ export const gameLevelSets = {
     { word: "TREE", icon: "🌳", options: ["TREE", "FLOWER", "GRASS"] },
     { word: "BIRD", icon: "🐦", options: ["BIRD", "DUCK", "CAT"] },
     { word: "MOON", icon: "🌙", options: ["SUN", "MOON", "STAR"] },
-    { word: "STAR", icon: "⭐", options: ["MOON", "STAR", "CLOUD"], stars: 10 },
+    { word: "STAR", icon: "⭐", options: ["MOON", "STAR", "CLOUD"] },
+    // harder: longer words, closer-looking wrong answers, 4 options
+    { word: "ELEPHANT", icon: "🐘", options: ["ELEPHANT", "ELEVATOR", "ELEGANT", "ENVELOPE"] },
+    { word: "BUTTERFLY", icon: "🦋", options: ["BUTTERFLY", "BUTTERCUP", "DRAGONFLY", "BEETLE"] },
+    { word: "RAINBOW", icon: "🌈", options: ["RAINBOW", "RAINCOAT", "RAINDROP", "MEADOW"] },
+    { word: "PENGUIN", icon: "🐧", options: ["PELICAN", "PENGUIN", "PIGEON", "PUFFIN"] },
+    { word: "DINOSAUR", icon: "🦕", options: ["DINOSAUR", "DOLPHIN", "DRAGON", "DINNER"], stars: 15 },
   ]),
 
   "odd-one-out": makeLevels([
@@ -134,7 +188,13 @@ export const gameLevelSets = {
     { odd: "■", items: ["●", "●", "■", "●"] },
     { odd: "🐸", items: ["🐶", "🐱", "🐶", "🐸"] },
     { odd: "🌙", items: ["☀️", "☀️", "🌙", "☀️"] },
-    { odd: "🟩", items: ["🟦", "🟦", "🟩", "🟦"], stars: 10 },
+    { odd: "🟩", items: ["🟦", "🟦", "🟩", "🟦"] },
+    // harder: bigger grids, subtler odd items
+    { odd: "🐺", items: ["🐶", "🐶", "🐶", "🐺", "🐶", "🐶"] },
+    { odd: "🍏", items: ["🍎", "🍎", "🍎", "🍎", "🍏", "🍎"] },
+    { odd: "🦄", items: ["🐴", "🐴", "🐴", "🦄", "🐴", "🐴"] },
+    { odd: "🟪", items: ["🟦", "🟦", "🟪", "🟦", "🟦", "🟦"] },
+    { odd: "🐬", items: ["🐳", "🐳", "🐬", "🐳", "🐳", "🐳"], stars: 15 },
   ]),
 };
 

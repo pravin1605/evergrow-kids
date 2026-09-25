@@ -1,31 +1,33 @@
 .level-card {
-  width: 100%;
+  --pop: cubic-bezier(0.34, 1.56, 0.64, 1);
 
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
-
   gap: 14px;
-
   padding: 14px;
-
-  border: 0;
-  border-radius: 20px;
-
+  border: 3px solid #fff;
+  border-radius: 24px;
   background: #ffffff;
-
-  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.06);
-
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
-
   text-align: left;
-
+  overflow: hidden;
+  font-family: "Baloo 2", "Nunito", "Comic Sans MS", system-ui, sans-serif;
   transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
+    transform 0.2s var(--pop),
+    box-shadow 0.2s ease;
+}
+
+.level-card:not(:disabled):hover {
+  transform: translateY(-3px) rotate(-0.5deg);
+  box-shadow: 0 9px 0 rgba(0, 0, 0, 0.12);
 }
 
 .level-card:active:not(:disabled) {
-  transform: scale(0.97);
+  transform: translateY(3px) scale(0.98);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
 .level-card:disabled {
@@ -33,106 +35,154 @@
 }
 
 .level-number {
-  width: 52px;
-  height: 52px;
-
-  flex: 0 0 52px;
-
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background: #8fc5ff;
+  box-shadow: 0 4px 0 #4d8cff;
+  color: #2b2140;
+  font-size: 22px;
+  font-weight: 800;
+  animation: level-bob 3s ease-in-out infinite;
+}
 
-  border-radius: 17px;
-
-  background: #f1f7ff;
-
-  color: #222;
-
-  font-size: 21px;
-  font-weight: 900;
+@keyframes level-bob {
+  50% { transform: translateY(-3px) rotate(-4deg); }
 }
 
 .level-info {
   min-width: 0;
-
   flex: 1;
-
   display: flex;
   flex-direction: column;
-
   gap: 4px;
 }
 
 .level-info strong {
-  color: #222;
-
+  color: #2b2140;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .level-info span {
-  color: #888;
-
-  font-size: 11px;
+  color: #6b5f80;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .level-arrow {
-  width: 34px;
-  height: 34px;
-
-  flex: 0 0 34px;
-
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 12px;
-
-  background: #f5f5f5;
-
-  color: #555;
-
+  border-radius: 50%;
+  background: #ffe066;
+  box-shadow: 0 3px 0 #f1b900;
+  color: #2b2140;
   font-size: 14px;
   font-weight: 900;
+  animation: level-nudge 1.8s ease-in-out infinite;
 }
 
+@keyframes level-nudge {
+  50% { transform: translateX(3px); }
+}
+
+/* ---------- COMPLETED ---------- */
+
 .level-card.completed {
-  background: #f8fff2;
+  background: linear-gradient(160deg, #ffffff, #f0fff0);
+  border-color: #b9e2be;
 }
 
 .level-card.completed .level-number {
-  background: #eaffcf;
+  background: #9de8a5;
+  box-shadow: 0 4px 0 #4dbb5c;
+  animation: level-bob 3s ease-in-out infinite, level-glow 2s ease-in-out infinite;
+}
+
+@keyframes level-glow {
+  50% { filter: brightness(1.1); }
 }
 
 .level-card.completed .level-arrow {
-  background: #222;
+  background: #4dbb5c;
+  box-shadow: 0 3px 0 #2e8b3c;
   color: #ffffff;
+  animation: level-pop 1.6s var(--pop) infinite;
 }
 
+@keyframes level-pop {
+  0%, 80%, 100% { transform: scale(1); }
+  90% { transform: scale(1.15); }
+}
+
+.level-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.level-confetti span {
+  position: absolute;
+  font-size: 14px;
+  opacity: 0.85;
+  animation: level-twinkle 2.4s ease-in-out infinite;
+}
+
+.level-confetti span:nth-child(1) { right: 46px; top: 8px; }
+.level-confetti span:nth-child(2) { right: 20px; top: 22px; animation-delay: 0.4s; }
+.level-confetti span:nth-child(3) { right: 60px; bottom: 10px; animation-delay: 0.8s; }
+
+@keyframes level-twinkle {
+  0%, 100% { transform: scale(0.8) rotate(0); opacity: 0.5; }
+  50% { transform: scale(1.2) rotate(20deg); opacity: 1; }
+}
+
+/* ---------- LOCKED ---------- */
+
 .level-card.locked {
-  opacity: 0.55;
+  opacity: 0.6;
+  background: #f7f7f7;
 }
 
 .level-card.locked .level-number {
-  background: #eeeeee;
+  background: #e2e2e2;
+  box-shadow: 0 4px 0 #c9c9c9;
+  color: #888;
+  animation: none;
+}
+
+.level-card.locked .level-arrow {
+  background: #e2e2e2;
+  box-shadow: 0 3px 0 #c9c9c9;
+  color: #888;
+  animation: none;
 }
 
 @media (min-width: 768px) {
-  .level-card {
-    padding: 16px;
-  }
+  .level-card { padding: 16px; }
 
   .level-number {
-    width: 58px;
-    height: 58px;
-
-    flex-basis: 58px;
-
-    font-size: 23px;
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+    font-size: 24px;
   }
 
-  .level-info strong {
-    font-size: 17px;
+  .level-info strong { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .level-card,
+  .level-card * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
   }
 }
